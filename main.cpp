@@ -135,7 +135,6 @@ int areaTriangle(int base, int height)
 {
     return base * height / 2;
 }
-*/
 
 // Q12 : Sum of digits of a Num
 int sumOfDigits(int n)
@@ -148,8 +147,20 @@ int sumOfDigits(int n)
     }
     return sum;
 }
-/*
+*/
 
+// Q13 : Sum of N Natural Numbers
+int sumOfNaturalNums(int n)
+{
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum = sum + i;
+    }
+    return sum;
+}
+
+/*
 // QN :
 int fibonacci(int n)
 {
@@ -161,6 +172,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << sumOfDigits(292) << endl;
+    cout << sumOfNaturalNums(5) << endl;
     return 0;
 }
