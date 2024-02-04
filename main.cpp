@@ -319,6 +319,18 @@ int isArmstrong(int num)
     return sum == temp;
 }
 
+// Q24 : Greatest of Two Nums
+int greatestOf2(int a, int b)
+{
+    return (a > b) ? a : b;
+}
+
+// Q25 : Greatest of Three Nums
+int greatestOf3(int a, int b, int c)
+{
+    return (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+}
+
 /*
 // QN :
 int fibonacci(int n)
@@ -331,6 +343,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << isArmstrong(3710) << endl;
+    cout << greatestOf3(700, 10, 6) << endl;
     return 0;
 }
