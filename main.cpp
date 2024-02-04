@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+/*
 // Q1 : Identify if a character is vowel or consonant
 void identifyVowel(char c)
 {
@@ -79,7 +79,6 @@ int getDigitCount(int num)
 }
 
 // Q6 : Fibonacci series up to n
-
 int fibonacci(int n)
 {
     if (n < 2)
@@ -106,11 +105,31 @@ int fibonacci(int n)
     //     return fibonacci(n - 1) + fibonacci(n - 2);
     // }
 }
+*/
+
+// Q7 : identify of the a number is positive or negative
+int posNeg(int n)
+{
+    return n > 0;
+}
+
+// Q8 : identify of the a number is even or odd
+int evenOdd(int n)
+{
+    return n % 2 == 0;
+}
+
+/*
+// QN :
+int fibonacci(int n)
+{
+}
+*/
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << fibonacci(70) << endl;
+    cout << evenOdd(-71) << endl;
     return 0;
 }
