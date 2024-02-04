@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <math.h>
 using namespace std;
 
 /*
@@ -283,7 +284,6 @@ void factors(int num)
         cout << v[i] << " ";
     }
 }
-*/
 
 // Q21 : Add Two Fractions
 float addFractions(float a, float b)
@@ -303,6 +303,21 @@ int gcd(int a, int b)
         return gcd(b, a % b);
     }
 }
+*/
+
+// Q23 : Check for Armstrong Number
+int isArmstrong(int num)
+{
+    int temp = num;
+    int sum = 0;
+    while (num > 0)
+    {
+        int rem = num % 10;
+        sum = sum + pow(rem, 3);
+        num = num / 10;
+    }
+    return sum == temp;
+}
 
 /*
 // QN :
@@ -316,6 +331,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << gcd(18, 42) << endl;
+    cout << isArmstrong(3710) << endl;
     return 0;
 }
