@@ -226,6 +226,21 @@ int isStrong(int n)
     return sum == temp;
 }
 
+// Q18 : Perfect Number
+// if sum of digits is equal to number
+int isPerfect(int n)
+{
+    int sum = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (n % i == 0)
+        {
+            sum += i;
+        }
+    }
+    return sum == n;
+}
+
 /*
 // QN :
 int fibonacci(int n)
@@ -238,6 +253,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << isStrong(4058) << endl;
+    cout << isPerfect(28) << endl;
     return 0;
 }
