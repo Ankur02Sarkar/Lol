@@ -171,6 +171,19 @@ int sumOfRangedNums(int lowerLimit, int upperLimit)
     return sum;
 }
 
+// Q15 : Reverse a Number
+int reverse(int n)
+{
+    int rev = 0;
+    while (n > 0)
+    {
+        int dig = n % 10;
+        rev = rev * 10 + dig;
+        n = n / 10;
+    }
+    return rev;
+}
+
 /*
 // QN :
 int fibonacci(int n)
@@ -183,6 +196,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << sumOfRangedNums(5, 7) << endl;
+    cout << reverse(6379) << endl;
     return 0;
 }
