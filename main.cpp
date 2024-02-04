@@ -340,6 +340,27 @@ void isLeapYear(int year)
         cout << "Not Leap Year";
 }
 
+// Q27 : Check for Prime
+void isPrime(int num)
+{
+    if (num > 1)
+    {
+        for (int i = 2; i < num; i++)
+        {
+            if (num % i == 0)
+            {
+                cout << "Not Prime";
+                return;
+            }
+        }
+        cout << "Prime";
+    }
+    else
+    {
+        cout << "Not Prime";
+    }
+}
+
 /*
 // QN :
 int fibonacci(int n)
@@ -352,6 +373,6 @@ int fibonacci(int n)
 
 int main()
 {
-    isLeapYear(2025);
+    isPrime(17);
     return 0;
 }
