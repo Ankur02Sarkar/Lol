@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 /*
 // Q1 : Identify if a character is vowel or consonant
@@ -266,6 +267,22 @@ int powerOf(int num, int pow)
     // }
 }
 
+// Q20 : Find Factors of a Number
+void factors(int num)
+{
+    vector<int> v;
+    for (int i = 1; i <= num; i++)
+    {
+        if (num % i == 0)
+        {
+            v.push_back(i);
+        }
+    }
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+}
 /*
 // QN :
 int fibonacci(int n)
@@ -278,6 +295,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << powerOf(3, 3) << endl;
+    factors(196);
     return 0;
 }
