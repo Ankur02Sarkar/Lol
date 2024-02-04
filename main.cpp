@@ -60,10 +60,28 @@ int getFactorial(int num)
     }
 }
 
+// Q5 : Number of digits in an integer
+int getDigitCount(int num)
+{
+    int posVal = abs(num);
+    // string n = to_string(posVal);
+    // return n.length();
+
+    // Recursion Method
+    if (posVal < 10)
+    {
+        return 1;
+    }
+    else
+    {
+        return 1 + getDigitCount(posVal / 10);
+    }
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << getFactorial(7) << endl;
+    cout << getDigitCount(-90) << endl;
     return 0;
 }
