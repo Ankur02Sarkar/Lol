@@ -303,7 +303,6 @@ int gcd(int a, int b)
         return gcd(b, a % b);
     }
 }
-*/
 
 // Q23 : Check for Armstrong Number
 int isArmstrong(int num)
@@ -330,6 +329,16 @@ int greatestOf3(int a, int b, int c)
 {
     return (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
 }
+*/
+
+// Q26 : Leap Year or not
+void isLeapYear(int year)
+{
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+        cout << "Leap Year";
+    else
+        cout << "Not Leap Year";
+}
 
 /*
 // QN :
@@ -343,6 +352,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << greatestOf3(700, 10, 6) << endl;
+    isLeapYear(2025);
     return 0;
 }
