@@ -182,7 +182,6 @@ int reverse(int n)
     }
     return rev;
 }
-*/
 
 // Q16 : LCM of two Numbers
 int lcm(int a, int b)
@@ -240,6 +239,32 @@ int isPerfect(int n)
     }
     return sum == n;
 }
+*/
+
+// Q19 : Find Power of a Number
+int powerOf(int num, int pow)
+{
+    int res = 1;
+    if (pow == 0)
+    {
+        return 1;
+    }
+    for (int i = 0; i < pow; i++)
+    {
+        res = res * num;
+    }
+    return res;
+
+    // Recursion Method
+    // if (pow == 0)
+    // {
+    //     return 1;
+    // }
+    // else
+    // {
+    //     return num * powerOf(num, pow - 1);
+    // }
+}
 
 /*
 // QN :
@@ -253,6 +278,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << isPerfect(28) << endl;
+    cout << powerOf(3, 3) << endl;
     return 0;
 }
