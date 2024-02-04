@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 /*
 // Q1 : Identify if a character is vowel or consonant
 void identifyVowel(char c)
@@ -240,7 +241,6 @@ int isPerfect(int n)
     }
     return sum == n;
 }
-*/
 
 // Q19 : Find Power of a Number
 int powerOf(int num, int pow)
@@ -283,6 +283,27 @@ void factors(int num)
         cout << v[i] << " ";
     }
 }
+*/
+
+// Q21 : Add Two Fractions
+float addFractions(float a, float b)
+{
+    return a + b;
+}
+
+// Q22 : GCD of Two Nums
+int gcd(int a, int b)
+{
+    if (b == 0)
+    {
+        return a;
+    }
+    else
+    {
+        return gcd(b, a % b);
+    }
+}
+
 /*
 // QN :
 int fibonacci(int n)
@@ -295,6 +316,6 @@ int fibonacci(int n)
 
 int main()
 {
-    factors(196);
+    cout << gcd(18, 42) << endl;
     return 0;
 }
