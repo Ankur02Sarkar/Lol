@@ -361,18 +361,31 @@ void isPrime(int num)
     }
 }
 
-/*
-// QN :
-int fibonacci(int n)
+// Q28 : Check for Palindrome
+void isPalindrome(int num)
 {
+    int temp = num;
+    int sum = 0;
+    while (num > 0)
+    {
+        int rem = num % 10;
+        sum = sum * 10 + rem;
+        num = num / 10;
+    }
+    if (sum == temp)
+    {
+        cout << "Palindrome";
+    }
+    else
+    {
+        cout << "Not Palindrome";
+    }
 }
-
-*/
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    isPrime(17);
+    isPalindrome(12325);
     return 0;
 }
