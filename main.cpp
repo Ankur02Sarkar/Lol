@@ -119,17 +119,38 @@ int evenOdd(int n)
     return n % 2 == 0;
 }
 
+// Q9 : Area Of Circle
+int areaCircle(int side)
+{
+    return 22.0 / 7 * side * side;
+}
+
+// Q10 : Area Of Rectangle
+int areaRectangle(int length, int breath)
+{
+    return length * breath;
+}
+
+// Q11 : Area Of Triangle
+
+int areaTriangle(int base, int height)
+{
+    return base * height / 2;
+}
+
 /*
+
 // QN :
 int fibonacci(int n)
 {
 }
+
 */
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << evenOdd(-71) << endl;
+    cout << areaTriangle(7,2) << endl;
     return 0;
 }
