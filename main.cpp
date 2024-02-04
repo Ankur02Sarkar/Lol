@@ -147,7 +147,6 @@ int sumOfDigits(int n)
     }
     return sum;
 }
-*/
 
 // Q13 : Sum of N Natural Numbers
 int sumOfNaturalNums(int n)
@@ -183,6 +182,49 @@ int reverse(int n)
     }
     return rev;
 }
+*/
+
+// Q16 : LCM of two Numbers
+int lcm(int a, int b)
+{
+    int temp = a;
+    while (b > 0)
+    {
+        int rem = temp % b;
+        temp = b;
+        b = rem;
+    }
+    return temp;
+}
+
+// Q17 : Check if Number is STRONG Number or Not
+// Strong number is a special number whose sum of the factorial of digits is equal to the original number
+int getFactorial(int num)
+{
+    if (num < 2)
+    {
+        return 1;
+    }
+    int n = 1;
+    for (int i = 1; i <= num; i++)
+    {
+        n = n * i;
+    }
+    return n;
+}
+
+int isStrong(int n)
+{
+    int temp = n;
+    int sum = 0;
+    while (n > 0)
+    {
+        int rem = n % 10;
+        sum = sum + getFactorial(rem);
+        n = n / 10;
+    }
+    return sum == temp;
+}
 
 /*
 // QN :
@@ -196,6 +238,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << reverse(6379) << endl;
+    cout << isStrong(4058) << endl;
     return 0;
 }
