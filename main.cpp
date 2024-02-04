@@ -35,10 +35,35 @@ void getAscii(char c)
     cout << "ASCII value of " << c << " is " << res;
 }
 
+// Q4 : Identify the Factorial of a Number
+int getFactorial(int num)
+{
+    // if (num < 2)
+    // {
+    //     return 1;
+    // }
+    // int n = 1;
+    // for (int i = 1; i <= num; i++)
+    // {
+    //     n = n * i;
+    // }
+    // return n;
+
+    // Recursion Method
+    if (num < 2)
+    {
+        return 1;
+    }
+    else
+    {
+        return num * getFactorial(num - 1);
+    }
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    getAscii('w');
+    cout << getFactorial(7) << endl;
     return 0;
 }
