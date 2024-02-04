@@ -160,6 +160,17 @@ int sumOfNaturalNums(int n)
     return sum;
 }
 
+// Q14 : Sum of Nums in a Given Range
+int sumOfRangedNums(int lowerLimit, int upperLimit)
+{
+    int sum = 0;
+    for (int i = lowerLimit; i <= upperLimit; i++)
+    {
+        sum = sum + i;
+    }
+    return sum;
+}
+
 /*
 // QN :
 int fibonacci(int n)
@@ -172,6 +183,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << sumOfNaturalNums(5) << endl;
+    cout << sumOfRangedNums(5, 7) << endl;
     return 0;
 }
