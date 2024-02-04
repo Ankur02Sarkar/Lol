@@ -14,8 +14,21 @@ void identifyVowel(char c)
         cout << c << " is not a Vowel";
     }
 }
+
+// Q2 : Identify if a character is Alphabet or not
+void identifyAlphabet(char c)
+{
+    if (isalpha(c))
+    {
+        cout << c << " is an Alphabet";
+    }
+    else
+    {
+        cout << c << " is not a Alphabet";
+    }
+}
 int main()
 {
-    identifyVowel('B');
+    identifyAlphabet('2');
     return 0;
 }
