@@ -78,10 +78,39 @@ int getDigitCount(int num)
     }
 }
 
+// Q6 : Fibonacci series up to n
+
+int fibonacci(int n)
+{
+    if (n < 2)
+    {
+        return n;
+    }
+    int prev = 0;
+    int next = 1;
+    for (int i = 2; i <= n; i++)
+    {
+        int temp = prev + next;
+        prev = next;
+        next = temp;
+    }
+    return next;
+
+    // Recursion Method
+    // if (n < 2)
+    // {
+    //     return n;
+    // }
+    // else
+    // {
+    //     return fibonacci(n - 1) + fibonacci(n - 2);
+    // }
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << getDigitCount(-90) << endl;
+    cout << fibonacci(70) << endl;
     return 0;
 }
