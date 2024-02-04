@@ -27,8 +27,18 @@ void identifyAlphabet(char c)
         cout << c << " is not a Alphabet";
     }
 }
+
+// Q3 : Identify the ASCII Value of a Character
+void getAscii(char c)
+{
+    int res = int(c);
+    cout << "ASCII value of " << c << " is " << res;
+}
+
+///////////////////////////////////////////////
+
 int main()
 {
-    identifyAlphabet('2');
+    getAscii('w');
     return 0;
 }
