@@ -105,7 +105,6 @@ int fibonacci(int n)
     //     return fibonacci(n - 1) + fibonacci(n - 2);
     // }
 }
-*/
 
 // Q7 : identify of the a number is positive or negative
 int posNeg(int n)
@@ -132,12 +131,23 @@ int areaRectangle(int length, int breath)
 }
 
 // Q11 : Area Of Triangle
-
 int areaTriangle(int base, int height)
 {
     return base * height / 2;
 }
+*/
 
+// Q12 : Sum of digits of a Num
+int sumOfDigits(int n)
+{
+    int sum = 0;
+    while (n > 0)
+    {
+        sum = sum + n % 10;
+        n = n / 10;
+    }
+    return sum;
+}
 /*
 
 // QN :
@@ -151,6 +161,6 @@ int fibonacci(int n)
 
 int main()
 {
-    cout << areaTriangle(7,2) << endl;
+    cout << sumOfDigits(292) << endl;
     return 0;
 }
