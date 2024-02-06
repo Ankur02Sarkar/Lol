@@ -451,10 +451,52 @@ void armstrongNumbersRanged(int lower, int upper)
     }
 }
 
+// Q31 : A Number as Sum of two Primes
+int checkPrime(int n)
+{
+    // 0 and 1 are not prime numbers
+    if (n <= 1)
+        return 0;
+
+    // 2 is the only even prime number
+    if (n == 2)
+        return 1;
+
+    // Eliminate even numbers > 2
+    if (n % 2 == 0)
+        return 0;
+
+    // Only check for odd divisors from 3 to sqrt(n)
+    for (int i = 3; i <= sqrt(n); i += 2)
+        if (n % i == 0)
+            return 0;
+
+    // If no divisors were found, number is prime
+    return 1;
+}
+
+void numToPrimeSum(int num)
+{
+    bool found = false;
+    for (int i = 2; i <= num / 2; i++)
+    {
+        if (checkPrime(i) && checkPrime(num - i))
+        {
+            cout << num << " = " << i << " + " << (num - i);
+            found = true;
+            break;
+        }
+    }
+    if (!found)
+    {
+        cout << "No Primes Sum in the given Range";
+    }
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    armstrongNumbersRanged(10, 50000);
+    numToPrimeSum(3);
     return 0;
 }
