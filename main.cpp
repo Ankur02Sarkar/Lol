@@ -415,11 +415,46 @@ void primeNumbersRanged(int lower, int upper)
 }
 
 // Q30 : Armstrong numbers between two intervals
+void armstrongNumbersRanged(int lower, int upper)
+{
+    vector<int> arms;
+    for (int i = lower; i <= upper; i++)
+    {
+        int temp = i;
+        int sum = 0;
+        int n = 0;
+
+        while (temp != 0)
+        {
+            temp = temp / 10;
+            n++;
+        }
+
+        temp = i;
+
+        while (temp > 0)
+        {
+            int rem = temp % 10;
+            sum += pow(rem, n);
+            temp = temp / 10;
+        }
+
+        if (sum == i)
+        {
+            arms.push_back(i);
+        }
+    }
+
+    for (int k = 0; k < arms.size(); k++)
+    {
+        cout << arms[k] << " ";
+    }
+}
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    primeNumbersRanged(2, 10);
+    armstrongNumbersRanged(10, 50000);
     return 0;
 }
