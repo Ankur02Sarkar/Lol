@@ -522,10 +522,37 @@ long long int replaceZeroes(long long int num)
     }
     return res;
 }
+
+// Q33 : Pyramid pattern using stars
+void printPyramid(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
+// Q34 : Pyramid pattern using numbers
+void printPyramid2(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << replaceZeroes(406009001203040);
+    printPyramid2(5);
     return 0;
 }
