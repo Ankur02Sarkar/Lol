@@ -549,10 +549,28 @@ void printPyramid2(int n)
     }
 }
 
+// Q35 : Palindromic pyramid pattern printing
+void printPalindromicPyramid(int n)
+{
+    int i, k, l;
+    for (i = 1; i <= n; i++)
+    {
+        for (k = 1; k <= i; k++)
+        {
+            cout << k << " ";
+        }
+        for (l = i - 1; l >= 1; l--)
+        {
+            cout << l << " ";
+        }
+        cout << endl;
+    }
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    printPyramid2(5);
+    printPalindromicPyramid(5);
     return 0;
 }
