@@ -329,7 +329,6 @@ int greatestOf3(int a, int b, int c)
 {
     return (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
 }
-*/
 
 // Q26 : Leap Year or not
 void isLeapYear(int year)
@@ -382,10 +381,45 @@ void isPalindrome(int num)
     }
 }
 
+*/
+
+// Q29 : Prime Numbers in a given range
+void primeNumbersRanged(int lower, int upper)
+{
+    vector<int> primes;
+    for (int i = lower; i <= upper; i++)
+    {
+        if (i < 2)
+            continue;
+
+        bool isPrime = true;
+        for (int j = 2; j * j <= i; j++)
+        {
+            if (i % j == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime)
+        {
+            primes.push_back(i);
+        }
+    }
+
+    for (int k = 0; k < primes.size(); k++)
+    {
+        cout << primes[k] << " ";
+    }
+}
+
+// Q30 : Armstrong numbers between two intervals
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    isPalindrome(12325);
+    primeNumbersRanged(2, 10);
     return 0;
 }
