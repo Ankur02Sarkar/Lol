@@ -381,8 +381,6 @@ void isPalindrome(int num)
     }
 }
 
-*/
-
 // Q29 : Prime Numbers in a given range
 void primeNumbersRanged(int lower, int upper)
 {
@@ -492,11 +490,42 @@ void numToPrimeSum(int num)
         cout << "No Primes Sum in the given Range";
     }
 }
+*/
 
+// Q32 : Replace all 0’s with 1 in a given integer
+long long int replaceZeroes(long long int num)
+{
+    // string val = to_string(num);
+    // for (int i = 0; i < val.length(); i++){
+    //     if(val[i] == '0'){
+    //         val[i] = '1';
+    //     }
+    // }
+    // return stoi(val);
+
+    // Optimised
+    long long int res = 0;
+    long long int tensPower = 1;
+    if (num == 0)
+        return 1;
+
+    while (num > 0)
+    {
+        int digit = num % 10;
+        if (digit == 0)
+        {
+            digit = 1;
+        }
+        res = tensPower * digit + res;
+        num = num / 10;
+        tensPower = tensPower * 10;
+    }
+    return res;
+}
 ///////////////////////////////////////////////
 
 int main()
 {
-    numToPrimeSum(3);
+    cout << replaceZeroes(406009001203040);
     return 0;
 }
