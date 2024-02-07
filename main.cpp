@@ -565,19 +565,18 @@ void printPalindromicPyramid(int n)
         cout << endl;
     }
 }
-*/
 
 // Q36 : Max number of Handshakes
 int maxHandshakes(int numOfPeople)
 {
-    /*
-    - Consider N number of people are present in a Room
-    - First Person can handshake ith n-1 people (himself is excluded)
-    - Second Person can handshake ith n-2 people (himself, first person are excluded)
-    - Third Person can handshake ith n-3 people (himself, first, second person are excluded)
-    So, Total Handshakes = (n-1)+(n-2)+(n-3)+ ... + 3+2+1
-    Sum = n*(n-1)/2
-    */
+    
+    // - Consider N number of people are present in a Room
+    // - First Person can handshake ith n-1 people (himself is excluded)
+    // - Second Person can handshake ith n-2 people (himself, first person are excluded)
+    // - Third Person can handshake ith n-3 people (himself, first, second person are excluded)
+    // So, Total Handshakes = (n-1)+(n-2)+(n-3)+ ... + 3+2+1
+    // Sum = n*(n-1)/2
+    
     return (numOfPeople * (numOfPeople - 1) / 2);
 }
 
@@ -593,14 +592,60 @@ void findQuadrant(int x, int y)
     else
         cout << "Q4\n";
 }
+*/
+
+// Q38 : Convert digit/number to words
+const string EMPTY = "";
+const string X[] = {EMPTY, "One ", "Two ", "Three ", "Four ", "Five ",
+                    "Six ", "Seven ", "Eight ", "Nine ", "Ten ", "Eleven ",
+                    "Twelve ", "Thirteen ", "Fourteen ", "Fifteen ",
+                    "Sixteen ", "Seventeen ", "Eighteen ", "Nineteen "};
+const string Y[] = {EMPTY, EMPTY, "Twenty ", "Thirty ", "Forty ", "Fifty ",
+                    "Sixty ", "Seventy ", "Eighty ", "Ninety "};
+
+string convertToDigit(int n, string suffix)
+{
+    if (n == 0)
+    {
+        return EMPTY;
+    }
+    // split `n` if it is more than 19
+    if (n > 19)
+    {
+        return Y[n / 10] + X[n % 10] + suffix;
+    }
+    else
+    {
+        return X[n] + suffix;
+    }
+}
+
+void convert(unsigned long long int n)
+{
+    string res;
+    res = convertToDigit((n % 100), "");
+    cout << "1 : " << res << endl;
+    if (n > 100 && n % 100)
+    {
+        res = "and " + res;
+        cout << "2 : " << res << endl;
+    }
+    res = convertToDigit(((n / 100) % 10), "Hundred ") + res;
+    cout << "3 : " << res << endl;
+    res = convertToDigit(((n / 1000) % 100), "Thousand ") + res;
+    cout << "4 : " << res << endl;
+    res = convertToDigit(((n / 100000) % 100), "Lakh, ") + res;
+    cout << "5 : " << res << endl;
+    res = convertToDigit((n / 10000000) % 100, "Crore, ") + res;
+    cout << "6 : " << res << endl;
+    res = convertToDigit((n / 1000000000) % 100, "Billion, ") + res;
+    cout << res << endl;
+}
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    findQuadrant(1, 1);
-    findQuadrant(-1, 1);
-    findQuadrant(-1, -1);
-    findQuadrant(1, -1);
+    convert(765400000);
     return 0;
 }
