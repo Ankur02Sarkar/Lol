@@ -846,8 +846,34 @@ void printHollowRectangle(int n)
     }
 }
 
+// Q51 : Diamond Pattern using Numbers
+void printDiamondPattern(int rowNum)
+{
+    int space = rowNum - 1, i, j;
+    for (i = 1; i <= rowNum; i++)
+    {
+        for (j = 1; j <= space; j++)
+            cout << " ";
+        space--;
+        for (j = 1; j <= (2 * i - 1); j++)
+            cout << j;
+        cout << endl;
+    }
+    space = 1;
+    for (i = 1; i <= (rowNum - 1); i++)
+    {
+        for (j = 1; j <= space; j++)
+            cout << " ";
+        space++;
+        for (j = 1; j <= (2 * (rowNum - i) - 1); j++)
+            cout << j;
+        cout << endl;
+    }
+    cout << endl;
+}
+
 int main()
 {
-    printHollowRectangle(10);
+    printDiamondPattern(5);
     return 0;
 }
