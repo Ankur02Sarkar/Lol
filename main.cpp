@@ -640,7 +640,6 @@ void convert(unsigned long long int n)
     res = convertToDigit((n / 1000000000) % 100, "Billion, ") + res;
     cout << res << endl;
 }
-*/
 
 // Q39 : Number of days in a given month of a given year
 int numOfDays(int month, int year)
@@ -765,16 +764,32 @@ int octalToDecimal(string octal)
     }
     return decimal;
 }
+*/
+
+// Q47 : Find number of times digit 3 occurs in each and every number from 0 to n
+int findOccurence(int n, int targetDigit = 3)
+{
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int temp = i;
+        while (temp > 0)
+        {
+            int currDig = temp % 10;
+            if (currDig == targetDigit)
+            {
+                count++;
+            }
+            temp = temp / 10;
+        }
+    }
+    return count;
+}
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << binaryToDecimal("101100") << endl;
-    cout << decimalToBinary(69) << endl;
-    cout << binaryToOctal("101100") << endl;
-    cout << octalToBinary("564") << endl;
-    cout << decimalToOctal(77) << endl;
-    cout << octalToDecimal("115") << endl;
+    cout << findOccurence(24);
     return 0;
 }
