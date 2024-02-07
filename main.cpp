@@ -581,13 +581,26 @@ int maxHandshakes(int numOfPeople)
     return (numOfPeople * (numOfPeople - 1) / 2);
 }
 
+// Q37 : Find the Quadrants in which coordinates lie
+void findQuadrant(int x, int y)
+{
+    if (x > 0 && y > 0)
+        cout << "Q1\n";
+    else if (x < 0 && y > 0)
+        cout << "Q2\n";
+    else if (x < 0 && y < 0)
+        cout << "Q3\n";
+    else
+        cout << "Q4\n";
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout<<maxHandshakes(1)<<endl;
-    cout<<maxHandshakes(2)<<endl;
-    cout<<maxHandshakes(3)<<endl;
-    cout<<maxHandshakes(10)<<endl;
+    findQuadrant(1, 1);
+    findQuadrant(-1, 1);
+    findQuadrant(-1, -1);
+    findQuadrant(1, -1);
     return 0;
 }
