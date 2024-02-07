@@ -764,7 +764,6 @@ int octalToDecimal(string octal)
     }
     return decimal;
 }
-*/
 
 // Q47 : Find number of times digit 3 occurs in each and every number from 0 to n
 int findOccurence(int n, int targetDigit = 3)
@@ -804,9 +803,31 @@ int countNineDivisors(int maxVal)
             count++;
     return count;
 }
+*/
+
+// Q49 : Roots Of Quadratic Equation
+void rootsQuadratic(int a, int b, int c)
+{
+    int discriminant = b * b - 4 * a * c;
+    if (discriminant > 0)
+    {
+        int root1 = ((-1 * b) + sqrt(discriminant)) / 2 * a;
+        int root2 = ((-1 * b) - sqrt(discriminant)) / 2 * a;
+        cout << root1 << " " << root2 << endl;
+    }
+    else if (discriminant == 0)
+    {
+        int root = (-1 * b) / 2 * a;
+        cout << root << endl;
+    }
+    else
+    {
+        cout << "No Real Roots\n";
+    }
+}
 
 int main()
 {
-    cout << countNineDivisors(100);
+    rootsQuadratic(1, 3, 1);
     return 0;
 }
