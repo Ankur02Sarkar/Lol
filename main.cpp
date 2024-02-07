@@ -667,10 +667,27 @@ int numOfDays(int month, int year)
     }
 }
 
+// Q40 : nPr Permutation
+int factorial(int n)
+{
+    if (n < 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return n * factorial(n - 1);
+    }
+}
+int permulation(int n, int r)
+{
+    return factorial(n) / factorial(n - r);
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << numOfDays(2, 2024);
+    cout << permulation(10, 5);
     return 0;
 }
