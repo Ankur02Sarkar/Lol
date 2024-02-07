@@ -684,10 +684,97 @@ int permulation(int n, int r)
     return factorial(n) / factorial(n - r);
 }
 
+// Q41 : Binary To Decimal Conversion
+int binaryToDecimal(string binary)
+{
+    int res = 0;
+    for (int i = binary.length() - 1; i >= 0; i--)
+    {
+        res += (binary[i] - '0') * pow(2, binary.length() - 1 - i);
+    }
+    return res;
+}
+
+// Q42 : Decimal To Binary Conversion
+string decimalToBinary(int n)
+{
+    string res = "";
+    while (n > 0)
+    {
+        res = to_string(n % 2) + res;
+        n = n / 2;
+    }
+    return res;
+}
+
+// Q43 : Binary To Octal Conversion
+string binaryToOctal(string binary)
+{
+    string octal = "";
+    int n = binary.length();
+    for (int i = 0; i < n; i += 3)
+    {
+        string chunk = binary.substr(i, min(3, n - i));
+        int dec = stoi(chunk, 0, 2);
+        octal += to_string(dec);
+    }
+    return octal;
+}
+
+// Q44 : Octal To Binary Conversion
+string octalToBinary(string octal)
+{
+    string binary = "";
+    for (int i = 0; i < octal.length(); i++)
+    {
+        char c = octal[i];
+        int dec = c - '0';
+        for (int j = 0; j < 3; j++)
+        {
+            int bit = dec & 1;
+            binary = char(bit + '0') + binary;
+            dec = dec >> 1;
+        }
+    }
+    return binary;
+}
+
+// Q45 : Decimal To Octal Conversion
+string decimalToOctal(int decimal)
+{
+    string octal = "";
+    while (decimal > 0)
+    {
+        int dig = decimal % 8;
+        octal = to_string(dig) + octal;
+        decimal = decimal / 8;
+    }
+    return octal;
+}
+
+// Q46 : Octal To Decimal Conversion
+int octalToDecimal(string octal)
+{
+    int decimal = 0;
+    int base = 1;
+    for (int i = octal.length() - 1; i >= 0; i--)
+    {
+        int dig = octal[i] - '0';
+        decimal += dig * base;
+        base = base * 8;
+    }
+    return decimal;
+}
+
 ///////////////////////////////////////////////
 
 int main()
 {
-    cout << permulation(10, 5);
+    cout << binaryToDecimal("101100") << endl;
+    cout << decimalToBinary(69) << endl;
+    cout << binaryToOctal("101100") << endl;
+    cout << octalToBinary("564") << endl;
+    cout << decimalToOctal(77) << endl;
+    cout << octalToDecimal("115") << endl;
     return 0;
 }
