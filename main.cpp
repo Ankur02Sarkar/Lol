@@ -490,7 +490,6 @@ void numToPrimeSum(int num)
         cout << "No Primes Sum in the given Range";
     }
 }
-*/
 
 // Q32 : Replace all 0’s with 1 in a given integer
 long long int replaceZeroes(long long int num)
@@ -566,11 +565,29 @@ void printPalindromicPyramid(int n)
         cout << endl;
     }
 }
+*/
+
+// Q36 : Max number of Handshakes
+int maxHandshakes(int numOfPeople)
+{
+    /*
+    - Consider N number of people are present in a Room
+    - First Person can handshake ith n-1 people (himself is excluded)
+    - Second Person can handshake ith n-2 people (himself, first person are excluded)
+    - Third Person can handshake ith n-3 people (himself, first, second person are excluded)
+    So, Total Handshakes = (n-1)+(n-2)+(n-3)+ ... + 3+2+1
+    Sum = n*(n-1)/2
+    */
+    return (numOfPeople * (numOfPeople - 1) / 2);
+}
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    printPalindromicPyramid(5);
+    cout<<maxHandshakes(1)<<endl;
+    cout<<maxHandshakes(2)<<endl;
+    cout<<maxHandshakes(3)<<endl;
+    cout<<maxHandshakes(10)<<endl;
     return 0;
 }
