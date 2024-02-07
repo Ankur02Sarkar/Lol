@@ -872,8 +872,23 @@ void printDiamondPattern(int rowNum)
     cout << endl;
 }
 
+// Q52 : Flyod's Triangle Pattern
+void floydsTriangle(int n)
+{
+    int count = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << count << " ";
+            count++;
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
-    printDiamondPattern(5);
+    floydsTriangle(5);
     return 0;
 }
