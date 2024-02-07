@@ -786,10 +786,27 @@ int findOccurence(int n, int targetDigit = 3)
     return count;
 }
 
-///////////////////////////////////////////////
+// Q48 : Find number of integers which has exactly 9 divisors
+int getDivisors(int n)
+{
+    int divisors = 0;
+    for (int i = 1; i <= n; i++)
+        if (n % i == 0)
+            divisors++;
+    return divisors;
+}
+
+int countNineDivisors(int maxVal)
+{
+    int count = 0;
+    for (int i = 2; i <= maxVal; i++)
+        if (getDivisors(i) == 9)
+            count++;
+    return count;
+}
 
 int main()
 {
-    cout << findOccurence(24);
+    cout << countNineDivisors(100);
     return 0;
 }
