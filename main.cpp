@@ -569,14 +569,14 @@ void printPalindromicPyramid(int n)
 // Q36 : Max number of Handshakes
 int maxHandshakes(int numOfPeople)
 {
-    
+
     // - Consider N number of people are present in a Room
     // - First Person can handshake ith n-1 people (himself is excluded)
     // - Second Person can handshake ith n-2 people (himself, first person are excluded)
     // - Third Person can handshake ith n-3 people (himself, first, second person are excluded)
     // So, Total Handshakes = (n-1)+(n-2)+(n-3)+ ... + 3+2+1
     // Sum = n*(n-1)/2
-    
+
     return (numOfPeople * (numOfPeople - 1) / 2);
 }
 
@@ -592,7 +592,6 @@ void findQuadrant(int x, int y)
     else
         cout << "Q4\n";
 }
-*/
 
 // Q38 : Convert digit/number to words
 const string EMPTY = "";
@@ -641,11 +640,37 @@ void convert(unsigned long long int n)
     res = convertToDigit((n / 1000000000) % 100, "Billion, ") + res;
     cout << res << endl;
 }
+*/
+
+// Q39 : Number of days in a given month of a given year
+int numOfDays(int month, int year)
+{
+    if ((month == 2) && ((year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0))))
+    {
+        return 29;
+    }
+    else if (month == 2)
+    {
+        return 28;
+    }
+    else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+    {
+        return 31;
+    }
+    else if (month == 4 || month == 6 || month == 9 || month == 11)
+    {
+        return 30;
+    }
+    else
+    {
+        return 0;
+    }
+}
 
 ///////////////////////////////////////////////
 
 int main()
 {
-    convert(765400000);
+    cout << numOfDays(2, 2024);
     return 0;
 }
