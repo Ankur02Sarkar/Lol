@@ -803,7 +803,6 @@ int countNineDivisors(int maxVal)
             count++;
     return count;
 }
-*/
 
 // Q49 : Roots Of Quadratic Equation
 void rootsQuadratic(int a, int b, int c)
@@ -908,9 +907,21 @@ void pascalsTriangle(int rows)
         cout << endl;
     }
 }
+*/
+
+// Q54 : Copy a String
+string copyStr(string s)
+{
+    string res = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        res += s[i];
+    }
+    return res;
+}
 
 int main()
 {
-    pascalsTriangle(10);
+    cout << copyStr("Ankur");
     return 0;
 }
