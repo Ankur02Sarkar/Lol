@@ -920,7 +920,7 @@ string copyStr(string s)
     return res;
 }
 
-// 55 : Reverse a String
+// Q55 : Reverse a String
 string reverseStr(string s)
 {
     string res = "";
@@ -931,8 +931,19 @@ string reverseStr(string s)
     return res;
 }
 
+// Q56 : Concatenate a String
+string concatStr(string s1, string s2)
+{
+    // return s1 + s2;
+    for (int i = 0; i < s2.length(); i++)
+    {
+        s1 += s2[i];
+    }
+    return s1;
+}
+
 int main()
 {
-    cout << reverseStr("Ankur");
+    cout << concatStr("Ankur ", "Sarkar");
     return 0;
 }
