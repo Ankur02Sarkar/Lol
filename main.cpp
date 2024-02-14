@@ -942,8 +942,20 @@ string concatStr(string s1, string s2)
     return s1;
 }
 
+// Q57 : Print a String
+void printStr(string s)
+{
+    cout << s << endl;
+}
+
+// Q58 : Print Length of String
+void printLenStr(string s)
+{
+    cout << s.length() << endl;
+}
+
 int main()
 {
-    cout << concatStr("Ankur ", "Sarkar");
+    printLenStr("Ankur");
     return 0;
 }
