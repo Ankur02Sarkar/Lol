@@ -920,8 +920,19 @@ string copyStr(string s)
     return res;
 }
 
+// 55 : Reverse a String
+string reverseStr(string s)
+{
+    string res = "";
+    for (int i = s.length() - 1; i >= 0; i--)
+    {
+        res += s[i];
+    }
+    return res;
+}
+
 int main()
 {
-    cout << copyStr("Ankur");
+    cout << reverseStr("Ankur");
     return 0;
 }
