@@ -907,7 +907,6 @@ void pascalsTriangle(int rows)
         cout << endl;
     }
 }
-*/
 
 // Q54 : Copy a String
 string copyStr(string s)
@@ -953,9 +952,23 @@ void printLenStr(string s)
 {
     cout << s.length() << endl;
 }
+*/
+
+// Q59 : Compare two Strings
+bool compareStr(string s1, string s2)
+{
+    if (s1.length() != s2.length()) // comparing lengths
+        return false;
+    for (int i = 0; i < s1.length(); i++) // if same length then compare the chars
+    {
+        if (s1[i] != s2[i])
+            return false;
+    }
+    return true;
+}
 
 int main()
 {
-    printLenStr("Ankur");
+    cout << compareStr("Ankur", "Ankur");
     return 0;
 }
