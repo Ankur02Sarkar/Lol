@@ -967,8 +967,21 @@ bool compareStr(string s1, string s2)
     return true;
 }
 
+// Q60 : Length of string without using inbuilt Function
+int lengthOfStr(string s)
+{
+    int len = 0;
+    while (s[len] != '\0')
+    {
+        len++;
+    }
+    return len;
+}
+
+
+
 int main()
 {
-    cout << compareStr("Ankur", "Ankur");
+    cout << lengthOfStr("Ankur");
     return 0;
 }
