@@ -952,7 +952,6 @@ void printLenStr(string s)
 {
     cout << s.length() << endl;
 }
-*/
 
 // Q59 : Compare two Strings
 bool compareStr(string s1, string s2)
@@ -1136,8 +1135,142 @@ string capitalizeWords(string s)
     return s;
 }
 
+// Q70 : Frequency of a character
+int frequencyChar(string s, char c)
+{
+    int count = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] == c)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Q71 : Print Non Repeating characters in a String
+void printNonRepeatingChars(string s)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (frequencyChar(s, s[i]) == 1)
+        {
+            cout << s[i];
+        }
+    }
+    cout << endl;
+}
+
+// Q73 : Check if Two Strings are anagram or not
+bool isAnagram(string s1, string s2)
+{
+    if (s1.length() != s2.length())
+        return false;
+    int count1[256] = {0};
+    int count2[256] = {0};
+    for (int i = 0; i < s1.length(); i++)
+        count1[s1[i]]++; // s1[0] = "l" thus count["l"] is incremented not count[0]
+    for (int i = 0; i < s2.length(); i++)
+        count2[s2[i]]++;
+
+    for (int i = 0; i < 256; i++)
+    {
+        if (count1[i] != count2[i])
+            return false;
+    }
+    return true;
+}
+
+// Q74 : Replace Substring in a String
+string replaceSubStr(string s, string oldSubStr, string newSubStr)
+{
+    string res = "";
+    int lenOldSubstr = oldSubStr.length();
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.substr(i, lenOldSubstr) == oldSubStr)
+        {
+            res += newSubStr;
+            i += lenOldSubstr - 1; // this is important
+        }
+        else
+        {
+            res += s[i];
+        }
+    }
+    return res;
+}
+
+// Q75 : Count common subsequence in two strings
+int sequences(string str1, string str2)
+{
+    int c1 = str1.length();
+    int c2 = str2.length();
+    int count[c1 + 1][c2 + 1];
+    for (int i = 0; i <= c1; i++)
+        for (int j = 0; j <= c2; j++)
+            count[i][j] = 0;
+    for (int i = 1; i <= c1; i++)
+        for (int j = 1; j <= c2; j++)
+        {
+            if (str1[i - 1] == str2[j - 1])
+                count[i][j] = 1 + count[i][j - 1] + count[i - 1][j];
+            else
+                count[i][j] = count[i][j - 1] + count[i - 1][j] - count[i - 1][j - 1];
+        }
+    return count[c1][c2];
+}
+
+// Q76 : Check if two strings match where one string contains wildcard characters
+bool isMatch(string s, string p)
+{
+    int sLen = s.length(), pLen = p.length();
+    int i = 0, j = 0, asterisk = -1, match = 0;
+
+    while (i < sLen)
+    {
+        // If the characters match or there's a '?' in pattern, move to the next character in both strings.
+        if (j < pLen && (p[j] == '?' || s[i] == p[j]))
+        {
+            i++;
+            j++;
+        }
+        // If there's a '*', it might match zero or more characters in s.
+        // Remember the position of '*' and the last character matched in s.
+        else if (j < pLen && p[j] == '*')
+        {
+            asterisk = j;
+            match = i;
+            j++;
+        }
+        // If the current characters don't match, or we're out of characters in p but previously encountered a '*',
+        // backtrack: assume '*' matches one more character, and try again.
+        else if (asterisk != -1)
+        {
+            j = asterisk + 1;
+            match++;
+            i = match;
+        }
+        // If none of the above conditions are met, the strings do not match.
+        else
+        {
+            return false;
+        }
+    }
+
+    // After processing all characters in s, make sure the remaining characters in p are all '*',
+    // as they can match an empty sequence.
+    while (j < pLen && p[j] == '*')
+        j++;
+
+    // If we've processed all characters in p, the strings match.
+    return j == pLen;
+}
+*/
+
+// Q77 : 
 int main()
 {
-    cout << capitalizeWords("hello how are you");
     return 0;
 }
