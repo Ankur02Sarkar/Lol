@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <math.h>
 using namespace std;
 
@@ -1315,10 +1316,77 @@ void checkArrayType(int a[], int len)
     }
 }
 
+// Q79: Find missing elements of a range
+void findMissingElementsInRange(int arr[], int n)
+{
+    int lower = arr[0], upper = arr[n - 1];
+    for (int i = lower; i <= upper; i++)
+    {
+        bool exists = false;
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[j] == i)
+            {
+                exists = true;
+                break;
+            }
+        }
+        if (!exists)
+        {
+            cout << i << " ";
+        }
+    }
+}
+
+// Q80: Find Triplets with a given Sum
+void findTriplets(int arr[], int n, int sum)
+{
+    // for (int i = 0; i < n; i++)
+    // {
+    //     for (int j = i + 1; j < n; j++)
+    //     {
+    //         for (int k = j + 1; k < n; k++)
+    //         {
+    //             if (arr[i] + arr[j] + arr[k] == sum)
+    //             {
+    //                 cout << arr[i] << " " << arr[j] << " " << arr[k] << endl;
+    //             }
+    //         }
+    //     }
+    // }
+    // Sort array in ascending order
+    sort(arr, arr + n);
+
+    for (int i = 0; i < n - 2; i++)
+    {
+
+        int left = i + 1;
+        int right = n - 1;
+
+        while (left < right)
+        {
+
+            if (arr[i] + arr[left] + arr[right] == sum)
+            {
+                cout << arr[i] << ", " << arr[left] << ", " << arr[right] << "\n";
+
+                left++;
+                right--;
+            }
+
+            else if (arr[i] + arr[left] + arr[right] < sum)
+                left++;
+
+            else
+                right--;
+        }
+    }
+}
+
 int main()
 {
-    int arr1[] = {2, 4, 8, 6, 0, 10};
+    int arr1[] = {1, 2, 5, 10, 12};
     int len = sizeof(arr1) / sizeof(arr1[0]);
-    checkArrayType(arr1, len);
+    findTriplets(arr1, len, 8);
     return 0;
 }
