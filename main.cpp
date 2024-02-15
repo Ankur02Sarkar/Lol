@@ -1269,8 +1269,56 @@ bool isMatch(string s, string p)
 }
 */
 
-// Q77 : 
+// Q77 : Compare two arrays
+bool isSame(int a[], int b[], int len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        if (a[i] != b[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Q78 : Find the Array Type
+void checkArrayType(int a[], int len)
+{
+    bool hasEven = false, hasOdd = false;
+    for (int i = 0; i < len; i++)
+    {
+        if (a[i] % 2 == 0)
+        {
+            hasEven = true;
+        }
+        else
+        {
+            hasOdd = true;
+        }
+    }
+    if (hasEven && hasOdd)
+    {
+        cout << "Mixed";
+    }
+    else if (hasEven)
+    {
+        cout << "Even";
+    }
+    else if (hasOdd)
+    {
+        cout << "Odd";
+    }
+    else
+    {
+        cout << "IDK";
+    }
+}
+
 int main()
 {
+    int arr1[] = {2, 4, 8, 6, 0, 10};
+    int len = sizeof(arr1) / sizeof(arr1[0]);
+    checkArrayType(arr1, len);
     return 0;
 }
