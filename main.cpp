@@ -978,10 +978,166 @@ int lengthOfStr(string s)
     return len;
 }
 
+// Q61 : Toggle each character of a String
+string toggleStr(string s)
+{
+    string res = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (islower(s[i]))
+            res += toupper(s[i]);
+        else
+            res += tolower(s[i]);
+    }
+    return res;
+}
 
+// Q62 : Remove Vowels
+string removeVowels(string s)
+{
+    string res = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        char lowerCase = tolower(s[i]);
+        if (lowerCase != 'a' && lowerCase != 'e' && lowerCase != 'i' && lowerCase != 'o' && lowerCase != 'u')
+        {
+            res += s[i];
+        }
+    }
+    return res;
+}
+
+// Q63 : Check for Palindrome String
+bool isPalindrome(string s)
+{
+    int i = 0, j = s.length() - 1;
+    while (i < j)
+    {
+        if (s[i] != s[j])
+            return false;
+        i++;
+        j--;
+    }
+    return true;
+}
+
+// Q64 : Sort String
+string sortStr(string s, string order = "asc")
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        for (int j = i + 1; j < s.length(); j++)
+        {
+            if (order == "asc" && s[i] > s[j])
+            {
+                swap(s[i], s[j]);
+            }
+            if (order == "desc" && s[i] < s[j])
+            {
+                swap(s[i], s[j]);
+            }
+        }
+    }
+    return s;
+}
+
+// Q65 : Remove Brackets from Algebric Equation
+string removeBrackets(string exp)
+{
+    string res = "";
+    for (int i = 0; i < exp.length(); i++)
+    {
+        if (exp[i] != '(' && exp[i] != ')')
+        {
+            res += exp[i];
+        }
+    }
+    return res;
+}
+
+// Q66 : Remove Chars in String except Alphabets
+string removeChars(string s)
+{
+    string res = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (isalpha(s[i]))
+        {
+            res += s[i];
+        }
+    }
+    return res;
+}
+
+// Q67 : Remove Spaces from String
+string removeSpaces(string s)
+{
+    string res = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i] != ' ')
+        {
+            res += s[i];
+        }
+    }
+    return res;
+}
+
+// Q68 : Sum of Nums in a Str
+int sumOfNums(string s)
+{
+    int sum = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (isdigit(s[i]))
+        {
+            sum += s[i] - '0'; // Getting the Ascii
+        }
+    }
+    return sum;
+}
+
+// Q69 : Capitalize the first and last letter of each word of a string
+string capitalizeWords(string s)
+{
+    int len = s.length() - 1;
+    if (s.empty())
+    {
+        return "";
+    }
+    if (isalpha(s[0]))
+    {
+        s[0] = toupper(s[0]);
+    }
+    for (int i = 1; i < len + 1; i++)
+    {
+        if (isspace(s[i]))
+        {
+            if (isalpha(s[i - 1]))
+            {
+                s[i - 1] = toupper(s[i - 1]);
+            }
+            int j = i + 1;
+            while (j < len + 1 && isspace(s[j]))
+            {
+                j++;
+            }
+            if (j < len + 1 && isalpha(s[j]))
+            {
+                s[j] = toupper(s[j]);
+                i = j;
+            }
+        }
+    }
+    if (isalpha(s[len]))
+    {
+        s[len] = toupper(s[len]);
+    }
+    return s;
+}
 
 int main()
 {
-    cout << lengthOfStr("Ankur");
+    cout << capitalizeWords("hello how are you");
     return 0;
 }
