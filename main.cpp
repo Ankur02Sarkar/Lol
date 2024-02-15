@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_map>
 #include <math.h>
 using namespace std;
 
@@ -1268,7 +1269,6 @@ bool isMatch(string s, string p)
     // If we've processed all characters in p, the strings match.
     return j == pLen;
 }
-*/
 
 // Q77 : Compare two arrays
 bool isSame(int a[], int b[], int len)
@@ -1383,10 +1383,80 @@ void findTriplets(int arr[], int n, int sum)
     }
 }
 
+// Q81: Cound EvenOdd
+void countEvenOdd(vector<int> arr)
+{
+    int even = 0, odd = 0;
+    for (int num : arr)
+    {
+        if (num % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+    cout << "Even elements: " << even << ", Odd elements: " << odd << endl;
+}
+
+// Q82: Find the Frequency of each number
+void findFrequency(vector<int> arr)
+{
+    unordered_map<int, int> freq;
+    for (int num : arr)
+    {
+        freq[num]++;
+    }
+    for (auto pair : freq)
+    {
+        cout << pair.first << " -- " << pair.second << endl;
+    }
+}
+
+// Q83a : Insert Element into vector
+void insert(vector<int> arr, int n)
+{
+    arr.push_back(n);
+    for (int elem : arr)
+    {
+        cout << elem << " ";
+    }
+}
+*/
+
+// Q83b : Delete Element from vector
+void deleteVec(vector<int> arr, int n)
+{
+    auto it = find(arr.begin(), arr.end(), n);
+    arr.erase(it);
+    for (int elem : arr)
+    {
+        cout << elem << " ";
+    }
+}
+
+// Q83b : Delete Element from vector
+void searchVec(vector<int> arr, int n)
+{
+    bool found = false;
+    for (int elem : arr)
+    {
+        if (elem == n)
+            found = true;
+    }
+    if (found)
+    {
+        cout << "Found";
+    }
+    else
+    {
+        cout << "Not Found";
+    }
+}
+
+// Q84 : Find smallest and Largest elem in Vector
+
 int main()
 {
-    int arr1[] = {1, 2, 5, 10, 12};
-    int len = sizeof(arr1) / sizeof(arr1[0]);
-    findTriplets(arr1, len, 8);
+    vector<int> v = {1, 2, 3, 5, 10};
+    searchVec(v, 11);
     return 0;
 }
