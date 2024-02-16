@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+#include <unordered_set>
 #include <math.h>
 using namespace std;
 
@@ -1452,11 +1453,199 @@ void searchVec(vector<int> arr, int n)
     }
 }
 
-// Q84 : Find smallest and Largest elem in Vector
+//<8. Find smallest and largest element in an array
+void findSmallestLargest(const vector<int> &arr)
+{
+    if (arr.empty())
+        return;
+    int smallest = arr[0], largest = arr[0];
+    for (int num : arr)
+    {
+        if (num < smallest)
+            smallest = num;
+        if (num > largest)
+            largest = num;
+    }
+    cout << "Smallest: " << smallest << ", Largest: " << largest << endl;
+}
+
+//<9. Find sum of elements in an array
+int findSum(const vector<int> &arr)
+{
+    int sum = 0;
+    for (int num : arr)
+    {
+        sum += num;
+    }
+    return sum;
+}
+
+//<10. Find longest palindrome in an array
+// This requires clarification: Arrays typically store numbers or characters, and palindromes are usually associated with strings.
+// Assuming the task is not correctly specified or more suited to strings.
+
+//<11. Remove duplicate elements in an array
+vector<int> removeDuplicates(const vector<int> &arr)
+{
+    unordered_set<int> seen;
+    vector<int> result;
+    for (int num : arr)
+    {
+        if (seen.insert(num).second)
+        {
+            result.push_back(num);
+        }
+    }
+    return result;
+}
+
+//<12. Find minimum scalar product of two vectors
+int minScalarProduct(vector<int> a, vector<int> b)
+{
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end(), greater<int>());
+    int product = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        product += a[i] * b[i];
+    }
+    return product;
+}
+
+//<13. Find sum of positive square elements in an array
+int sumOfPositiveSquares(const vector<int> &arr)
+{
+    int sum = 0;
+    for (int num : arr)
+    {
+        if (num > 0)
+            sum += num * num;
+    }
+    return sum;
+}
+
+//<14. Find second smallest element in an array
+int findSecondSmallest(const vector<int> &arr)
+{
+    int smallest = INT_MAX, secondSmallest = INT_MAX;
+    for (int num : arr)
+    {
+        if (num < smallest)
+        {
+            secondSmallest = smallest;
+            smallest = num;
+        }
+        else if (num < secondSmallest && num != smallest)
+        {
+            secondSmallest = num;
+        }
+    }
+    return secondSmallest == INT_MAX ? -1 : secondSmallest; // Return -1 if no second smallest found
+}
+
+//<15. Sorting the elements of an array
+vector<int> sortArray(vector<int> arr)
+{
+    sort(arr.begin(), arr.end());
+    return arr;
+}
+
+//<16. Reversing an array
+vector<int> reverseArray(vector<int> arr)
+{
+    reverse(arr.begin(), arr.end());
+    return arr;
+}
+
+//<17. Find maximum product subarray
+// This problem requires a dynamic programming approach for an efficient solution.
+// Assuming a simplified version or refer to a specific algorithm.
+
+//<18. Find whether Arrays are disjoint or not
+bool areDisjoint(const vector<int> &arr1, const vector<int> &arr2)
+{
+    unordered_set<int> set1(arr1.begin(), arr1.end());
+    for (int num : arr2)
+    {
+        if (set1.find(num) != set1.end())
+            return false;
+    }
+    return true;
+}
+
+//<19. Find whether an array is a subset of another array or not
+bool isSubset(const vector<int> &subset, const vector<int> &set)
+{
+    unordered_set<int> setElements(set.begin(), set.end());
+    for (int num : subset)
+    {
+        if (setElements.find(num) == setElements.end())
+            return false;
+    }
+    return true;
+}
+
+//<20. Find maximum scalar product of two vectors
+// Similar to minimum scalar product but sort both vectors in the same order
+int maxScalarProduct(vector<int> a, vector<int> b)
+{
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    int product = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        product += a[i] * b[i];
+    }
+    return product;
+}
+
+//<21. Find whether the numbers of an array be made equal
+// Requires clarification: This could refer to applying operations to make all elements equal, which depends on the operations allowed.
+
+//<22. Find symmetric pairs in an array
+// Assuming the array contains pairs of elements. This requires a data structure to represent pairs or a clarification on the input format.
+
+//<23. Count distinct elements of an array
+int countDistinct(const vector<int> &arr)
+{
+    return unordered_set<int>(arr.begin(), arr.end()).size();
+}
+
+//<24. Find non-repeating elements of an array
+vector<int> findNonRepeating(const vector<int> &arr)
+{
+    unordered_map<int, int> freqMap;
+    vector<int> result;
+    for (int num : arr)
+    {
+        freqMap[num]++;
+    }
+    for (const auto &pair : freqMap)
+    {
+        if (pair.second == 1)
+            result.push_back(pair.first);
+    }
+    return result;
+}
+
+//<25. Find repeating elements in an array
+vector<int> findRepeating(const vector<int> &arr)
+{
+    unordered_map<int, int> freqMap;
+    vector<int> result;
+    for (int num : arr)
+    {
+        if (freqMap[num]++ == 1)
+        {
+            result.push_back(num);
+        }
+    }
+    return result;
+}
 
 int main()
 {
     vector<int> v = {1, 2, 3, 5, 10};
-    searchVec(v, 11);
+    findSmallestLargest(v);
     return 0;
 }
