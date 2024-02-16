@@ -6,7 +6,6 @@
 #include <math.h>
 using namespace std;
 
-/*
 // Q1 : Identify if a character is vowel or consonant
 void identifyVowel(char c)
 {
@@ -1421,7 +1420,6 @@ void insert(vector<int> arr, int n)
         cout << elem << " ";
     }
 }
-*/
 
 // Q83b : Delete Element from vector
 void deleteVec(vector<int> arr, int n)
